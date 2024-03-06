@@ -12,4 +12,5 @@
 - Add expanse
   - Input Filed (Title)
   - Input Filed (Amount)
+  - Select Date
 - Slide list item (For delete action)
