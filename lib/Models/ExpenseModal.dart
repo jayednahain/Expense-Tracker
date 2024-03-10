@@ -1,5 +1,4 @@
-
-enum ExpenseCategory {food,travel,work }
+import 'Enums.dart';
 
 class ExpenseModal {
 
@@ -21,7 +20,7 @@ class ExpenseModal {
   final DateTime date;
   final ExpenseCategory category;
   final String? description;
-  final String paymentMethod;
+  final PaymentMethod paymentMethod;
   final List<String> tags;
   final String? imageUrl;
 
