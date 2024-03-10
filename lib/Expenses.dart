@@ -1,3 +1,4 @@
+import 'package:expencetracker/ExpensesList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Models/Enums.dart';
@@ -13,7 +14,7 @@ class Expenses extends StatefulWidget {
 
 class _ExpensesState extends State<Expenses> {
 
-  final List<ExpenseModal> _RegisteredExpenseModel =[
+  final List<ExpenseModal> _RegisteredExpenseList =[
     ExpenseModal(
         title: "title",
         amount: 5.5,
@@ -25,7 +26,26 @@ class _ExpensesState extends State<Expenses> {
         amount: 5.5,
         date: DateTime.now(),
         category: ExpenseCategory.food,
-        paymentMethod: PaymentMethod.cashMoney)
+        paymentMethod: PaymentMethod.cashMoney),
+    ExpenseModal(
+        title: "title",
+        amount: 5.5,
+        date: DateTime.now(),
+        category: ExpenseCategory.food,
+        paymentMethod: PaymentMethod.cashMoney),
+    ExpenseModal(
+        title: "title",
+        amount: 5.5,
+        date: DateTime.now(),
+        category: ExpenseCategory.food,
+        paymentMethod: PaymentMethod.cashMoney),
+    ExpenseModal(
+        title: "title",
+        amount: 5.5,
+        date: DateTime.now(),
+        category: ExpenseCategory.food,
+        paymentMethod: PaymentMethod.cashMoney),
+
   ];
 
 
@@ -33,9 +53,9 @@ class _ExpensesState extends State<Expenses> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: const [
+        children:  [
           Text("Cart"),
-          Text("Cart")
+          Expanded(child: ExpenseList(ExpenseListData:_RegisteredExpenseList ))
         ],
       ),
     );
