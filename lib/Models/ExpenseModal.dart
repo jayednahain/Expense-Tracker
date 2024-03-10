@@ -1,3 +1,6 @@
+
+enum ExpenseCategory {food,travel,work }
+
 class ExpenseModal {
 
   ExpenseModal ({
@@ -16,7 +19,7 @@ class ExpenseModal {
   final String title;
   final double amount;
   final DateTime date;
-  final String category;
+  final ExpenseCategory category;
   final String? description;
   final String paymentMethod;
   final List<String> tags;
