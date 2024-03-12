@@ -25,13 +25,13 @@ class _ExpensesState extends State<Expenses> {
         title: "title2",
         amount: 5.5,
         date: DateTime.now(),
-        category: ExpenseCategory.food,
+        category: ExpenseCategory.travel,
         paymentMethod: PaymentMethod.cashMoney),
     ExpenseModal(
         title: "title3",
         amount: 5.5,
         date: DateTime.now(),
-        category: ExpenseCategory.food,
+        category: ExpenseCategory.travel,
         paymentMethod: PaymentMethod.cashMoney),
     ExpenseModal(
         title: "title4",

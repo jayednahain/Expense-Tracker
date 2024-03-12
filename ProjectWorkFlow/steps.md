@@ -12,3 +12,5 @@
 - use Expanded() on nested list
 
 # 103: creating custom list item
+# 104: created a map for icon selection according to category
+

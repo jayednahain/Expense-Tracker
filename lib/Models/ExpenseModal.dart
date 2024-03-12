@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 import 'Enums.dart';
+
+final DateFormatter = DateFormat.yMd();
+
+// 104:
+const ExpenseCategoryIcon = {
+  ExpenseCategory.food:Icons.lunch_dining,
+  ExpenseCategory.travel:Icons.flight_takeoff,
+  ExpenseCategory.work: Icons.work
+};
 
 class ExpenseModal {
 
@@ -25,5 +34,9 @@ class ExpenseModal {
   final PaymentMethod paymentMethod;
   final List<String> tags;
   final String? imageUrl;
+
+  String get FormattedDate{
+    return  DateFormatter.format(date);
+  }
 
 }
