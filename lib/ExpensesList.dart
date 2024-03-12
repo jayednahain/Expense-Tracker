@@ -1,3 +1,4 @@
+import 'package:expencetracker/Widgets/ExpenseSingleItem.dart';
 import 'package:flutter/material.dart';
 
 import 'Models/ExpenseModal.dart';
@@ -12,7 +13,7 @@ class ExpenseList extends StatelessWidget {
     return ListView.builder(
         itemCount:  ExpenseListData.length,
         itemBuilder:(ctx,index){
-          return Text(ExpenseListData[index].title);
+          return ExpenseSingleItem(ExpenseListData[index]);
         });
   }
 }
