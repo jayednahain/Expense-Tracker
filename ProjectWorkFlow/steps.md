@@ -11,8 +11,11 @@
 # 102: use list inside list
 - use Expanded() on nested list
 
-# 103: creating custom list item
-# 104: created a map for icon selection according to category
-# 105: Navbar added (App Nav bar)
-# 106: create function for open bottom sheet
+### 103: creating custom list item
+### 104: created a map for icon selection according to category
+### 105: Navbar added (App Nav bar)
+### 106: create function for open bottom sheet
+### 107: created new widget for adding new expense
+    - connect this widget with modal bottom sheet function
+
 
