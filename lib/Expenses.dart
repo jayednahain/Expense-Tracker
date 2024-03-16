@@ -1,4 +1,5 @@
 import 'package:expencetracker/ExpensesList.dart';
+import 'package:expencetracker/Widgets/AddNewExpenseWidget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Models/Enums.dart';
@@ -50,7 +51,7 @@ class _ExpensesState extends State<Expenses> {
 
   //106
   void _openAddExpenseOverlay(){
-    showModalBottomSheet(context: context, builder: (ctx)=>Text(""));
+    showModalBottomSheet(context: context, builder: (ctx)=>AddNewExpenseWidget());
   }
 
   @override
