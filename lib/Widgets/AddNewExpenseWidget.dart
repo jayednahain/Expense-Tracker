@@ -9,6 +9,15 @@ class AddNewExpenseWidget extends StatefulWidget {
 }
 
 class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
+
+  //108
+  var _title ="";
+
+  //108
+  void _saveTitleInput(String titleInput){
+    _title = titleInput;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,13 +25,23 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
         horizontal: 20, vertical: 10
       ),
       child: Column(
-        children: const [
+        children: [
           TextField(
             maxLength: 50,
             decoration: InputDecoration(
-
               label: Text("title")
+
             ),
+          ),
+
+          //108
+          Row(
+            children: [
+              ElevatedButton(
+                  onPressed: (){
+                    // _saveTitleInput()
+                  }, child: Text("submit"))
+            ],
           )
         ],
       ),
