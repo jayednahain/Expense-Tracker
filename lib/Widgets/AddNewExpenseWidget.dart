@@ -57,7 +57,9 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
           //108
           Row(
             children: [
-              TextButton(onPressed: (){}, child: Text("Cancle")),
+              TextButton(onPressed: (){
+                Navigator.pop(context);
+              }, child: Text("Cancle")),
               ElevatedButton(
                   onPressed: (){
                     print(_titleInputFieldController.text);
