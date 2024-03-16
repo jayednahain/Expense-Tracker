@@ -13,4 +13,6 @@
 
 # 103: creating custom list item
 # 104: created a map for icon selection according to category
+# 105: Navbar added (App Nav bar)
+# 106: create function for open bottom sheet
 
