@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 //107:
 class AddNewExpenseWidget extends StatefulWidget {
@@ -11,13 +12,15 @@ class AddNewExpenseWidget extends StatefulWidget {
 class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
 
   //109:
-  final _titleController = TextEditingController();
+  final _titleInputFieldController = TextEditingController();
+  final _amountInputFieldController = TextEditingController();
 
   @override
   void dispose() {
     // TODO: implement dispose
     //109:
-    _titleController.dispose();
+    _titleInputFieldController.dispose();
+    _amountInputFieldController.dispose();
     super.dispose();
   }
 
@@ -31,20 +34,33 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
         children: [
           TextField(
             //109:
-            controller: _titleController,
-            maxLength: 50,
+            controller: _titleInputFieldController,
+            maxLength: 200,
             decoration: InputDecoration(
               label: Text("title")
-
+            ),
+          ),
+          TextField(
+            //109:
+            inputFormatters: [
+             new FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+            ],
+            keyboardType: TextInputType.number,
+            controller: _amountInputFieldController,
+            maxLength: 200,
+            decoration: InputDecoration(
+                prefixText: '\$ ',
+                label: Text("Amout")
             ),
           ),
 
           //108
           Row(
             children: [
+              TextButton(onPressed: (){}, child: Text("Cancle")),
               ElevatedButton(
                   onPressed: (){
-                    print(_titleController.text);
+                    print(_titleInputFieldController.text);
                   }, child: Text("submit"))
             ],
           )

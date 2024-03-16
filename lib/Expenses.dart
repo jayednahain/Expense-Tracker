@@ -53,7 +53,6 @@ class _ExpensesState extends State<Expenses> {
   void _openAddExpenseOverlay(){
     showModalBottomSheet(context: context, builder: (ctx)=>AddNewExpenseWidget());
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,9 +60,11 @@ class _ExpensesState extends State<Expenses> {
         // 105:
         title: const Text("Expense Tracker"),
         actions: [
+
           IconButton(
               onPressed: _openAddExpenseOverlay,
-              icon: Icon(Icons.add))
+              icon: Icon(Icons.add)),
+
         ],
       ),
       body: Column(
