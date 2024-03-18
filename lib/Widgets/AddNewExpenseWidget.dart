@@ -1,3 +1,4 @@
+import 'package:expencetracker/Models/Enums.dart';
 import 'package:expencetracker/Models/ExpenseModal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,6 +16,9 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
   //109:
   final _titleInputFieldController = TextEditingController();
   final _amountInputFieldController = TextEditingController();
+  // ExpenseCategory  _selectedCategory = ExpenseCategory.travel;
+  ExpenseCategory?  _selectedCategory;
+
   //114
   DateTime? _selectedDate;
 
@@ -46,6 +50,57 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
     super.dispose();
   }
 
+  Widget _renderAmountAndDate(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      // crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Expanded(
+            child: TextField(
+              //109:
+              inputFormatters: [ FilteringTextInputFormatter.allow(RegExp("[0-9]"))],
+              keyboardType: TextInputType.number,
+              controller: _amountInputFieldController,
+              maxLength: 200,
+              decoration: const InputDecoration(
+                  prefixText: '\$ ',
+                  label: Text("Amout")
+              ),
+            )
+        ),
+        const SizedBox(width: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            //114
+            Text(_selectedDate == null ?  "select Data" : DateFormatter.format(_selectedDate!)),
+            IconButton(
+                onPressed: (){_showDatePicker();},
+                icon:const Icon(Icons.calendar_month) )
+          ],
+        )
+      ],
+    );
+  }
+  Widget _renderDropDownButton(){
+    return DropdownButton(
+      value: _selectedCategory ,
+        items: ExpenseCategory.values.map((category) =>
+            DropdownMenuItem(
+              value: category,
+            child:Text(category.name.toUpperCase())
+        )
+        ).toList(),
+        onChanged: (value){
+        if(value == null){
+          return;
+        }
+        setState(() {
+          _selectedCategory =value;
+        });
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -62,39 +117,17 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
               label: Text("title")
             ),
           ),
-          Row(
-            children: [
-              Expanded(
-                  child: TextField(
-                    //109:
-                    inputFormatters: [ FilteringTextInputFormatter.allow(RegExp("[0-9]"))],
-                    keyboardType: TextInputType.number,
-                    controller: _amountInputFieldController,
-                    maxLength: 200,
-                    decoration: const InputDecoration(
-                        prefixText: '\$ ',
-                        label: Text("Amout")
-                    ),
-                  )
-              ),
-              const SizedBox(width: 16),
-              Expanded(child: Row(
-                children: [
-                  //114
-                  Text(_selectedDate == null ?  "select Data" : DateFormatter.format(_selectedDate!)),
-                  IconButton(
-                      onPressed: (){_showDatePicker();},
-                      icon:const Icon(Icons.calendar_month) )
-                ],
-              ))
-            ],
-          ),
+          _renderAmountAndDate(),
+
+          _renderDropDownButton(),
           //108
           Row(
+            // crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextButton(onPressed: (){
                 Navigator.pop(context);
               }, child: Text("Cancle")),
+
               ElevatedButton(
                   onPressed: (){
                     print(_titleInputFieldController.text);
