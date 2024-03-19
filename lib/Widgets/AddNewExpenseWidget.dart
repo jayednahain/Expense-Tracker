@@ -5,8 +5,12 @@ import 'package:flutter/services.dart';
 
 //107:
 class AddNewExpenseWidget extends StatefulWidget {
-  const AddNewExpenseWidget({super.key});
+  //118:-3
+  const AddNewExpenseWidget({super.key,required this.onAddExpense});
 
+  //adding new property which will store function as property
+  //118:-4
+  final void Function(ExpenseModal expense) onAddExpense;
   @override
   State<AddNewExpenseWidget> createState() => _AddNewExpenseWidgetState();
 }
@@ -48,6 +52,17 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
       showWarning();
       return;
     }
+    // 118:-5
+    widget.onAddExpense(
+        ExpenseModal(
+            title: _titleInputFieldController.text,
+            amount: enteredAmount,
+            date: _selectedDate!,
+            category: _selectedCategory!,
+            paymentMethod: PaymentMethod.cashMoney
+        )
+    );
+    Navigator.pop(context);
   }
 
   //114

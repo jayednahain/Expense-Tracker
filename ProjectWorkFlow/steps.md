@@ -23,6 +23,13 @@
 ### 109: controller added for taking input data
 ### 114: adding date picker
 ### 115: select expense category from dropdown button
-### 116: run validate function using warning
+### 116 - 117: run validate function using warning
+### 117: 
+### 118: expense adding function | add and update current function list
+    - 118:-1 write function defination
+    - 118:-2 sending funcion to AddNewExpenseWidget widget
+    - 118:-3 revice function on constructor
+    - 118:-4 store in local function property 
+    - 118:-5 callin function with current information
 
 
