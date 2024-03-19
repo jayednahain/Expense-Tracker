@@ -22,6 +22,19 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
   //114
   DateTime? _selectedDate;
 
+  void _submitExpenseData(){
+    //115
+    // convert our amount to number
+    final _enteredAmount = double.tryParse(_amountInputFieldController.text);
+    // condition for title
+    // if user leaves it blank or makes some blank spaces
+    // this statement will be true
+    final amountIsInvalied = _enteredAmount == null || _enteredAmount <=0;
+    if (_titleInputFieldController.text.trim().isEmpty ||  amountIsInvalied||_selectedDate == null){
+
+    }
+  }
+
   //114
   void _showDatePicker() async{
     final currentData = DateTime.now();
@@ -98,7 +111,7 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
         setState(() {
           _selectedCategory =value;
         });
-        });
+      });
   }
 
   @override
