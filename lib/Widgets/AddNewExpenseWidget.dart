@@ -18,20 +18,35 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
   final _amountInputFieldController = TextEditingController();
   // ExpenseCategory  _selectedCategory = ExpenseCategory.travel;
   ExpenseCategory?  _selectedCategory;
-
   //114
   DateTime? _selectedDate;
+
+
+  void showWarning(){
+    showDialog(
+        context: context,
+        builder: (ctx)=>AlertDialog(
+          title: const Text("Invalied Input"),
+          content: const Text("Please Fill all the field"),
+          actions: [
+            TextButton(
+                onPressed: (){
+                  Navigator.pop(ctx);
+                },
+                child: const Text("Okay"))
+          ],
+        ));
+  }
 
   void _submitExpenseData(){
     //115
     // convert our amount to number
-    final _enteredAmount = double.tryParse(_amountInputFieldController.text);
-    // condition for title
-    // if user leaves it blank or makes some blank spaces
-    // this statement will be true
-    final amountIsInvalied = _enteredAmount == null || _enteredAmount <=0;
-    if (_titleInputFieldController.text.trim().isEmpty ||  amountIsInvalied||_selectedDate == null){
+    final enteredAmount = double.tryParse(_amountInputFieldController.text);
 
+    final amountIsInvalied = enteredAmount == null || enteredAmount <=0;
+    if (_titleInputFieldController.text.trim().isEmpty ||  amountIsInvalied||_selectedDate == null){
+      showWarning();
+      return;
     }
   }
 
@@ -131,7 +146,6 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
             ),
           ),
           _renderAmountAndDate(),
-
           _renderDropDownButton(),
           //108
           Row(
@@ -143,6 +157,7 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
 
               ElevatedButton(
                   onPressed: (){
+                    _submitExpenseData();
                     print(_titleInputFieldController.text);
                   }, child: Text("submit"))
             ],
