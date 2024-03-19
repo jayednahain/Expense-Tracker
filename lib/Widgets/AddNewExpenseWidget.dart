@@ -148,7 +148,7 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 20, vertical: 10
+        horizontal: 20, vertical: 40
       ),
       child: Column(
         children: [

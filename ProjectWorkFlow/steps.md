@@ -32,4 +32,4 @@
     - 118:-4 store in local function property 
     - 118:-5 callin function with current information
 
-
+### 119: creating modal full scrren
