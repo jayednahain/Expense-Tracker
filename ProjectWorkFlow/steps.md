@@ -39,4 +39,4 @@
     - 120-2 passing function as value in expense list
     - 120-3 creating local property for store function
     - 120-4 call function for execution
-
+### 121: showing empty list text | showing message on delete item inside list

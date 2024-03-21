@@ -71,33 +71,83 @@ class _ExpensesState extends State<Expenses> {
   }
   // 120-1
   void _removeExpense(ExpenseModal expense){
+    final currentItemIndex = _RegisteredExpenseList.indexOf(expense);
     setState(() {
       _RegisteredExpenseList.remove(expense);
     });
+    ScaffoldMessenger.of(context).clearSnackBars();
+    print(expense.title);
+    // _showSnackBar(expense);
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: const Duration(seconds: 3),
+          content: const Text("Expense Deleted"),
+          action: SnackBarAction(
+            label: "undo",
+            onPressed: (){
+              setState(() {
+                _RegisteredExpenseList.insert(currentItemIndex, expense);
+              });
+            },
+          ),
+        )
+    );
+
+  }
+
+  void _showSnackBar(expense){
+    print(expense.title);
+    final currentItemIndex = _RegisteredExpenseList.indexOf(expense);
+    print("currentItemIndex: " +currentItemIndex.toString());
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: const Duration(seconds: 3),
+          content: const Text("Expense Deleted"),
+          action: SnackBarAction(
+            label: "undo",
+            onPressed: (){
+              setState(() {
+                _RegisteredExpenseList.insert(currentItemIndex, expense);
+              });
+
+            },
+          ),
+        )
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+
+    Widget mainContainer = const Center(
+      child: Text("Empty expense list"),
+    );
+
+    if(_RegisteredExpenseList.isNotEmpty){
+      mainContainer = ExpenseList(
+        //120-2
+          onRemoveExpense: _removeExpense,
+          ExpenseListData:_RegisteredExpenseList
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         // 105:
         title: const Text("Expense Tracker"),
         actions: [
-
           IconButton(
               onPressed: _openAddExpenseOverlay,
-              icon: Icon(Icons.add)),
-
+              icon: Icon(Icons.add)
+          ),
         ],
       ),
       body: Column(
         children:  [
           Text("Cart"),
           Expanded(
-              child: ExpenseList(
-                //120-2
-                  onRemoveExpense: _removeExpense,
-                  ExpenseListData:_RegisteredExpenseList ))
+              child: mainContainer
+          )
         ],
       ),
     );
