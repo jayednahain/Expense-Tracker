@@ -33,3 +33,10 @@
     - 118:-5 callin function with current information
 
 ### 119: creating modal full scrren
+### 120: Dissmissable widget
+    - using vale key for delete correct data
+    - 120-1 create remove function defination
+    - 120-2 passing function as value in expense list
+    - 120-3 creating local property for store function
+    - 120-4 call function for execution
+

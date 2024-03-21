@@ -46,7 +46,6 @@ class _ExpensesState extends State<Expenses> {
         date: DateTime.now(),
         category: ExpenseCategory.food,
         paymentMethod: PaymentMethod.cashMoney),
-
   ];
 
   //106
@@ -69,8 +68,14 @@ class _ExpensesState extends State<Expenses> {
     setState(() {
       _RegisteredExpenseList.add(expense);
     });
-
   }
+  // 120-1
+  void _removeExpense(ExpenseModal expense){
+    setState(() {
+      _RegisteredExpenseList.remove(expense);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +93,11 @@ class _ExpensesState extends State<Expenses> {
       body: Column(
         children:  [
           Text("Cart"),
-          Expanded(child: ExpenseList(ExpenseListData:_RegisteredExpenseList ))
+          Expanded(
+              child: ExpenseList(
+                //120-2
+                  onRemoveExpense: _removeExpense,
+                  ExpenseListData:_RegisteredExpenseList ))
         ],
       ),
     );
