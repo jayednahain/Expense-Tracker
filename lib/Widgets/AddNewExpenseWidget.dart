@@ -5,11 +5,7 @@ import 'package:flutter/services.dart';
 
 //107:
 class AddNewExpenseWidget extends StatefulWidget {
-  //118:-3
   const AddNewExpenseWidget({super.key,required this.onAddExpense});
-
-  //adding new property which will store function as property
-  //118:-4
   final void Function(ExpenseModal expense) onAddExpense;
   @override
   State<AddNewExpenseWidget> createState() => _AddNewExpenseWidgetState();
@@ -22,7 +18,6 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
   final _amountInputFieldController = TextEditingController();
   // ExpenseCategory  _selectedCategory = ExpenseCategory.travel;
   ExpenseCategory?  _selectedCategory;
-  //114
   DateTime? _selectedDate;
 
 
@@ -44,15 +39,13 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
 
   void _submitExpenseData(){
     //115
-    // convert our amount to number
     final enteredAmount = double.tryParse(_amountInputFieldController.text);
-
     final amountIsInvalied = enteredAmount == null || enteredAmount <=0;
     if (_titleInputFieldController.text.trim().isEmpty ||  amountIsInvalied||_selectedDate == null){
       showWarning();
       return;
     }
-    // 118:-5
+
     widget.onAddExpense(
         ExpenseModal(
             title: _titleInputFieldController.text,
@@ -81,7 +74,6 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
         firstDate: firstDate,
         lastDate: currentData
     );
-    //114
     setState(() {_selectedDate = pickDate;});
   }
 
@@ -96,7 +88,6 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
   Widget _renderAmountAndDate(){
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      // crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Expanded(
             child: TextField(
@@ -153,7 +144,6 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
       child: Column(
         children: [
           TextField(
-            //109:
             controller: _titleInputFieldController,
             maxLength: 200,
             decoration: const InputDecoration(
@@ -164,7 +154,6 @@ class _AddNewExpenseWidgetState extends State<AddNewExpenseWidget> {
           _renderDropDownButton(),
           //108
           Row(
-            // crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextButton(onPressed: (){
                 Navigator.pop(context);

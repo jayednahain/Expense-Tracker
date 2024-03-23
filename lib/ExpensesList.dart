@@ -11,7 +11,6 @@ class ExpenseList extends StatelessWidget {
   });
 
   final List<ExpenseModal> ExpenseListData;
-  //120-3
   final void Function(ExpenseModal expense) onRemoveExpense;
 
   @override

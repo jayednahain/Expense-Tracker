@@ -51,10 +51,8 @@ class _ExpensesState extends State<Expenses> {
   //106
   void _openAddExpenseOverlay(){
     showModalBottomSheet(
-        //119:
         isScrollControlled: true,
         context: context,
-        //118:-2
         builder: (ctx)=>
             AddNewExpenseWidget(
               onAddExpense: _addExpense
@@ -62,8 +60,6 @@ class _ExpensesState extends State<Expenses> {
     );
   }
 
-  //118
-  // 118:-1
   void _addExpense(ExpenseModal expense){
     setState(() {
       _RegisteredExpenseList.add(expense);
