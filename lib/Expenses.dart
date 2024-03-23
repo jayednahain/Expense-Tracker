@@ -98,7 +98,7 @@ class _ExpensesState extends State<Expenses> {
   void _showSnackBar(expense){
     print(expense.title);
     final currentItemIndex = _RegisteredExpenseList.indexOf(expense);
-    print("currentItemIndex: " +currentItemIndex.toString());
+    print("currentItemIndex: $currentItemIndex");
     ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           duration: const Duration(seconds: 3),
