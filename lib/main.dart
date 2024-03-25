@@ -1,3 +1,4 @@
+import 'package:expencetracker/AppThemeData/CustomTheme.dart';
 import 'package:flutter/material.dart';
 import 'package:expencetracker/Expenses.dart';
 void main() {
@@ -5,7 +6,6 @@ void main() {
 }
 
 
-var KcolorScheme = ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 96, 59, 181));
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -13,14 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData().copyWith(
-        useMaterial3: true,
-        colorScheme: KcolorScheme,
-        appBarTheme: AppBarTheme().copyWith(
-          backgroundColor: KcolorScheme.onPrimaryContainer,
-          foregroundColor: KcolorScheme.primaryContainer,
-        )
-      ),
+      theme: CustomTheme(),
       debugShowCheckedModeBanner: false,
       home: Expenses()
     );
