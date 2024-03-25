@@ -16,11 +16,17 @@ class ExpenseSingleItem extends StatelessWidget {
           vertical: 16
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(expense.title),
-            SizedBox(
-              height:4,
+            Text(
+              expense.title,
+
+              // style: Theme.of(context).textTheme.titleLarge.copyWith(),
+              // override the actual theme for the specific widget
+
+              style: Theme.of(context).textTheme.titleLarge,
             ),
+            const SizedBox(height:4),
             Row(
               children: [
                 Text("\$${expense.amount.toStringAsFixed(2)}"),

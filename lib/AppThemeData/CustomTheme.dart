@@ -15,7 +15,10 @@ ThemeData CustomTheme() {
     ),
     textTheme: ThemeData().textTheme.copyWith(
       titleLarge: TextStyle(
+
+        // this will overide the current title large
         fontWeight: FontWeight.bold,
+        // color:  Colors.red
         color: KcolorScheme.onSecondaryContainer,
 
       )
