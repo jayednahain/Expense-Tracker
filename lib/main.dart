@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: CustomTheme(),
+      darkTheme: CustomThemeDark(),
+      theme: CustomThemePrimary(),
       debugShowCheckedModeBanner: false,
       home: Expenses()
     );

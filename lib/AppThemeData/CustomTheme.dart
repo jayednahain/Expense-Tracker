@@ -1,21 +1,20 @@
+import 'dart:ffi';
 import 'package:flutter/material.dart';
+import 'CustomThemeComponents.dart';
+import 'CustomThemeColorSchema.dart';
 
 var KcolorScheme = ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 96, 59, 181));
+var KDarkColorSchema = ColorScheme.fromSeed(brightness: Brightness.dark,seedColor: Color.fromARGB(255, 96, 59, 181));
 
-ThemeData CustomTheme() {
+ThemeData CustomThemePrimary() {
   return ThemeData().copyWith(
     useMaterial3: true,
     colorScheme: KcolorScheme,
     appBarTheme: CustomAppBarTheme() ,
-    cardTheme: CustomCardTheme(),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: KcolorScheme.primaryContainer
-      )
-    ),
+    cardTheme: CustomCardTheme(ThemeProfile.primary),
+    elevatedButtonTheme:CustomElevatedButtonThemeData(ThemeProfile.primary),
     textTheme: ThemeData().textTheme.copyWith(
       titleLarge: TextStyle(
-
         // this will overide the current title large
         fontWeight: FontWeight.bold,
         // color:  Colors.red
@@ -23,26 +22,24 @@ ThemeData CustomTheme() {
 
       )
     ),
-
   );
 }
 
-AppBarTheme CustomAppBarTheme(){
-  return const AppBarTheme().copyWith(
-    backgroundColor: KcolorScheme.onPrimaryContainer,
-    foregroundColor: KcolorScheme.primaryContainer,
+ThemeData CustomThemeDark(){
+  return ThemeData.dark().copyWith(
+      useMaterial3:true,
+      colorScheme: KDarkColorSchema,
+      cardTheme: CustomCardTheme(ThemeProfile.dark),
+      elevatedButtonTheme: CustomElevatedButtonThemeData(ThemeProfile.dark)
   );
 }
 
-CardTheme CustomCardTheme(){
-  return const CardTheme().copyWith(
-      color: KcolorScheme.secondaryContainer,
-      margin: const EdgeInsets.symmetric(
-          horizontal: 10,
-          vertical: 5
-      )
-  );
-}
+
+
+
+
+
+
 
 
 
