@@ -19,9 +19,9 @@ ThemeData CustomThemePrimary() {
         fontWeight: FontWeight.bold,
         // color:  Colors.red
         color: KcolorScheme.onSecondaryContainer,
-
       )
     ),
+    snackBarTheme:CustomSnackBarThemeData(ThemeProfile.primary)
   );
 }
 
@@ -30,7 +30,8 @@ ThemeData CustomThemeDark(){
       useMaterial3:true,
       colorScheme: KDarkColorSchema,
       cardTheme: CustomCardTheme(ThemeProfile.dark),
-      elevatedButtonTheme: CustomElevatedButtonThemeData(ThemeProfile.dark)
+      elevatedButtonTheme: CustomElevatedButtonThemeData(ThemeProfile.dark),
+      snackBarTheme:CustomSnackBarThemeData(ThemeProfile.dark)
   );
 }
 

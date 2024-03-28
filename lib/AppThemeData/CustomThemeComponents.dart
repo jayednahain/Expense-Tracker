@@ -48,3 +48,25 @@ ElevatedButtonThemeData CustomElevatedButtonThemeData(ThemeProfile profile){
       );
   }
 }
+
+SnackBarThemeData CustomSnackBarThemeData(ThemeProfile profile){
+  // return SnackBarThemeData(
+  //   actionTextColor:
+  // )
+
+  switch (profile) {
+    case ThemeProfile.primary:
+      return SnackBarThemeData(
+        contentTextStyle: TextStyle(
+          color:KcolorScheme.secondaryContainer
+        )
+      );
+
+    case ThemeProfile.dark:
+      return SnackBarThemeData(
+          contentTextStyle: TextStyle(
+              color:KDarkColorSchema.secondaryContainer
+          )
+      );
+  }
+}
