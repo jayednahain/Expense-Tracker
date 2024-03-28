@@ -50,10 +50,6 @@ ElevatedButtonThemeData CustomElevatedButtonThemeData(ThemeProfile profile){
 }
 
 SnackBarThemeData CustomSnackBarThemeData(ThemeProfile profile){
-  // return SnackBarThemeData(
-  //   actionTextColor:
-  // )
-
   switch (profile) {
     case ThemeProfile.primary:
       return SnackBarThemeData(
@@ -70,3 +66,20 @@ SnackBarThemeData CustomSnackBarThemeData(ThemeProfile profile){
       );
   }
 }
+
+IconThemeData CustomIconThemeData(ThemeProfile profile){
+  switch (profile) {
+    case ThemeProfile.primary:
+      return IconThemeData(
+        color: KDarkColorSchema.secondaryContainer
+      );
+
+
+    case ThemeProfile.dark:
+      return IconThemeData(
+          color: KcolorScheme.secondaryContainer
+      );
+
+  }
+}
+

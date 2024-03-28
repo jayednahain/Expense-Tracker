@@ -43,3 +43,4 @@
 
 
 ### 130 : aditional constructor function
+### 131 : chart bar functionality added

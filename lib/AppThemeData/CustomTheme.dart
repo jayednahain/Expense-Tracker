@@ -21,7 +21,8 @@ ThemeData CustomThemePrimary() {
         color: KcolorScheme.onSecondaryContainer,
       )
     ),
-    snackBarTheme:CustomSnackBarThemeData(ThemeProfile.primary)
+    snackBarTheme:CustomSnackBarThemeData(ThemeProfile.primary),
+    iconTheme: CustomIconThemeData(ThemeProfile.primary)
   );
 }
 
@@ -31,7 +32,8 @@ ThemeData CustomThemeDark(){
       colorScheme: KDarkColorSchema,
       cardTheme: CustomCardTheme(ThemeProfile.dark),
       elevatedButtonTheme: CustomElevatedButtonThemeData(ThemeProfile.dark),
-      snackBarTheme:CustomSnackBarThemeData(ThemeProfile.dark)
+      snackBarTheme:CustomSnackBarThemeData(ThemeProfile.dark),
+      iconTheme: CustomIconThemeData(ThemeProfile.dark)
   );
 }
 

@@ -1,5 +1,8 @@
+import 'dart:ffi';
+
 import 'package:expencetracker/ExpensesList.dart';
 import 'package:expencetracker/Widgets/AddNewExpenseWidget.dart';
+import 'package:expencetracker/Widgets/Chart/Chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Models/Enums.dart';
@@ -140,7 +143,7 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(
         children:  [
-          Text("Cart"),
+          Chart(expenseList: _RegisteredExpenseList),
           Expanded(
               child: mainContainer
           )
