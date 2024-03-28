@@ -40,3 +40,6 @@
     - 120-3 creating local property for store function
     - 120-4 call function for execution
 ### 121: showing empty list text | showing message on delete item inside list
+
+
+### 130 : aditional constructor function

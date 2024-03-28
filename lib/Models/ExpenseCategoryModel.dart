@@ -8,6 +8,9 @@ class ExpenseCategoryModel {
     required this.expenseList
   });
 
+  ExpenseCategoryModel.forCategory(List<ExpenseModal> allExpenses, this.expenseCategory):
+        expenseList = allExpenses.where((expense) =>expense.category == expenseCategory).toList();
+
   final ExpenseCategory expenseCategory;
   final List<ExpenseModal> expenseList;
 
