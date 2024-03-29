@@ -52,15 +52,13 @@ class _ExpensesState extends State<Expenses> {
   ];
 
   //106
-  void _openAddExpenseOverlay(){
+  void _openAddExpenseOverlay() {
+
     showModalBottomSheet(
         isScrollControlled: true,
         context: context,
-        builder: (ctx)=>
-            AddNewExpenseWidget(
-              onAddExpense: _addExpense
-            )
-    );
+        builder: (ctx) =>
+            AddNewExpenseWidget(onAddExpense: _addExpense));
   }
 
   void _addExpense(ExpenseModal expense){
